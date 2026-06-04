@@ -1,0 +1,44 @@
+.Cards__ArrayList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 16px;
+}
+
+.Cards__ArrayListItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 180px;
+    padding: 16px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    color: #334155;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.05),
+        0 2px 4px rgba(0, 0, 0, 0.03);
+
+    transition: all 0.25s ease;
+
+    cursor: pointer;
+}
+
+.Cards__ArrayListItem p {
+    margin: 0;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.Cards__ArrayListItem p:first-child {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.Cards__ArrayListItem p:not(:first-child) {
+    font-size: 0.9rem;
+    color: #64748b;
+}

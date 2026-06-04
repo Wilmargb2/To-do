@@ -1,0 +1,91 @@
+.app__mapTasksContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.app__taskCard {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    transition: all .25s ease;
+}
+
+.app__taskCard:hover {
+    border-color: #cbd5e1;
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.05);
+}
+
+.app__taskLeft {
+    padding-top: 6px;
+}
+
+.app__taskCheckbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.app__taskContent {
+    flex: 1;
+}
+
+.app__taskHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app__taskTitleSection {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.app__taskTitleSection h3 {
+    margin: 0;
+    color: #0f172a;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.app__taskMeta {
+    display: flex;
+    gap: 12px;
+    margin-top: 6px;
+    color: #6b7280;
+    font-size: .85rem;
+}
+
+.app__taskDescription {
+    margin-top: 12px;
+    margin-bottom: 0;
+    color: #475569;
+    line-height: 1.6;
+    padding-left: 24px;
+}
+
+.app__taskExpand {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: #64748b;
+    font-size: 1rem;
+}
+
+.app__taskExpand:hover {
+    color: #2563eb;
+}
+
+.app__taskPriority {
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: .75rem;
+    font-weight: 600;
+}

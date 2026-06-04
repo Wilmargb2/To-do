@@ -1,0 +1,29 @@
+.nav__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    box-sizing: border-box;
+    background: #ffffff;
+    color: #0f172a;
+    border-bottom: 1px solid #e2e8f0;
+    border-radius: 16px;
+    transition: all 0.25s ease;
+}
+
+.nav__title {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: -0.5px;
+}
+
+.nav__subtitle {
+    margin-top: 4px;
+    margin-bottom: 0;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #64748b;
+}
