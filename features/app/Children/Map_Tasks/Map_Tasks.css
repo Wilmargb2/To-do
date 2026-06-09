@@ -1,91 +1,279 @@
 .app__mapTasksContainer {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: var(--space-3);
     width: 100%;
 }
 
 .app__taskCard {
     display: flex;
     align-items: flex-start;
-    gap: 14px;
-    padding: 16px;
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 18px;
-    transition: all .25s ease;
+    gap: var(--space-4);
+    padding: var(--space-5);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
 }
 
 .app__taskCard:hover {
     border-color: #cbd5e1;
-    box-shadow:
-        0 8px 20px rgba(0,0,0,.05);
+    box-shadow: var(--shadow-md);
+    transform: scale(1.005);
 }
 
+/* Custom Checkbox */
 .app__taskLeft {
-    padding-top: 6px;
+    padding-top: 2px;
 }
 
 .app__taskCheckbox {
-    width: 18px;
-    height: 18px;
+    appearance: none;
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #cbd5e1;
+    border-radius: 6px;
     cursor: pointer;
+    transition: all var(--transition-fast);
+    position: relative;
+    flex-shrink: 0;
+    background: var(--color-surface);
+}
+
+.app__taskCheckbox:hover {
+    border-color: var(--color-primary);
+    background: var(--color-primary-bg);
+}
+
+.app__taskCheckbox:checked {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.app__taskCheckbox:checked::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 6px;
+    height: 11px;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.app__taskCheckbox:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.app__taskCheckbox:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
 .app__taskContent {
     flex: 1;
+    min-width: 0;
 }
 
 .app__taskHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: var(--space-2);
 }
 
 .app__taskTitleSection {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: var(--space-3);
+    flex: 1;
+    min-width: 0;
 }
 
 .app__taskTitleSection h3 {
     margin: 0;
-    color: #0f172a;
-    font-size: 1rem;
-    font-weight: 600;
-}
-
-.app__taskMeta {
+    color: var(--color-text-primary);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
     display: flex;
-    gap: 12px;
-    margin-top: 6px;
-    color: #6b7280;
-    font-size: .85rem;
+    align-items: center;
+    gap: var(--space-2);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.app__taskDescription {
-    margin-top: 12px;
-    margin-bottom: 0;
-    color: #475569;
-    line-height: 1.6;
-    padding-left: 24px;
+.app__taskTitleSection h3 svg {
+    flex-shrink: 0;
+    color: var(--color-text-muted);
 }
 
+/* State Badge */
+.app__taskBadge {
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.app__taskBadge--pendiente {
+    background: var(--color-primary-bg);
+    color: var(--color-primary);
+}
+
+.app__taskBadge--completada {
+    background: var(--color-success-bg);
+    color: var(--color-success);
+}
+
+.app__taskBadge--vencida {
+    background: var(--color-danger-bg);
+    color: var(--color-danger);
+}
+
+.app__taskBadge--cerrada {
+    background: var(--color-border-light);
+    color: var(--color-text-muted);
+}
+
+/* Priority Badges */
+.app__taskPriority {
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    white-space: nowrap;
+    flex-shrink: 0;
+    letter-spacing: 0.2px;
+}
+
+.app__taskPriority--baja {
+    background: var(--color-priority-low-bg);
+    color: var(--color-priority-low);
+}
+
+.app__taskPriority--media {
+    background: var(--color-priority-medium-bg);
+    color: var(--color-priority-medium);
+}
+
+.app__taskPriority--alta {
+    background: var(--color-priority-high-bg);
+    color: var(--color-priority-high);
+}
+
+/* Action Buttons */
+.app__taskActions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    flex-shrink: 0;
+}
+
+.app__taskAction {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: var(--color-text-muted);
+    padding: 6px;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+}
+
+.app__taskAction:hover {
+    background: var(--color-border-light);
+}
+
+.app__taskAction--close:hover {
+    color: var(--color-warning);
+    background: var(--color-warning-bg);
+}
+
+.app__taskAction--delete:hover {
+    color: var(--color-danger);
+    background: var(--color-danger-bg);
+}
+
+/* Expand Button */
 .app__taskExpand {
     border: none;
     background: transparent;
     cursor: pointer;
-    color: #64748b;
+    color: var(--color-text-muted);
     font-size: 1rem;
+    padding: 4px;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .app__taskExpand:hover {
-    color: #2563eb;
+    color: var(--color-primary);
+    background: var(--color-primary-bg);
 }
 
-.app__taskPriority {
-    padding: 4px 10px;
-    border-radius: 999px;
-    font-size: .75rem;
-    font-weight: 600;
+.app__taskExpand--rotated svg {
+    transform: rotate(180deg);
+}
+
+.app__taskExpand svg {
+    transition: transform var(--transition-base);
+}
+
+/* Meta Info */
+.app__taskMeta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-top: var(--space-2);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-xs);
+}
+
+.app__taskMeta span {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+/* Description */
+.app__taskDescription {
+    display: none;
+    margin-top: var(--space-3);
+    margin-bottom: 0;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.7;
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-bg);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--color-primary-light);
+    animation: fadeExpand 250ms ease;
+}
+
+.app__taskDescription--visible {
+    display: block;
+}
+
+@keyframes fadeExpand {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

@@ -1,15 +1,23 @@
 export let Cards_conts = [
     {
         label: "Pendientes",
-        value: 0
+        value: 0,
+        modifier: "pending"
     },
     {
         label: "Completadas",
-        value: 0
+        value: 0,
+        modifier: "completed"
     },
     {
         label: "Vencidas",
-        value: 0
+        value: 0,
+        modifier: "overdue"
+    },
+    {
+        label: "Cerradas",
+        value: 0,
+        modifier: "closed"
     }
 ]
 
@@ -23,6 +31,8 @@ if (data && data.length > 0) {
             Cards_conts[1].value++;
         } else if (transFormData[i].state == "Vencida") {
             Cards_conts[2].value++;
+        } else if (transFormData[i].state == "Cerrada") {
+            Cards_conts[3].value++;
         }
     }
 }

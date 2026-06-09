@@ -1,7 +1,7 @@
 .app__container {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: var(--space-4);
     width: 100%;
 }
 
@@ -9,27 +9,32 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: var(--space-3);
     width: 100%;
 }
 
 .app__addNoteContainer button {
-    width: 80%;
-    padding: 12px 16px;
+    width: 100%;
+    padding: 14px 20px;
     border: none;
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     cursor: pointer;
-    background: #2563eb;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
     color: #ffffff;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: all 0.25s ease;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    font-family: var(--font-sans);
+    transition: all var(--transition-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    letter-spacing: 0.3px;
 }
 
 .app__addNoteContainer button:hover {
-    background: #1d4ed8;
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35);
 }
 
 .app__addNoteContainer button:active {

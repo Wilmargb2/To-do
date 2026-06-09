@@ -1,13 +1,22 @@
 body {
-    background: #f1f5f9;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e8eef6 50%, #f0f4f8 100%);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .main__container {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: var(--space-3);
     width: 100%;
-    max-width: 800px;
+    max-width: 860px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: var(--space-6);
+    background: var(--color-container);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
 }

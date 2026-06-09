@@ -25,9 +25,9 @@ export function Create_ToDo() {
                         Prioridad
                     </label> 
                     <div class="app__createToDoPriority">
-                        <button id="app__createToDoPriorityLow">Baja</button>
-                        <button id="app__createToDoPriorityMedium" class="app__createToDoPriorityActive" >Media</button>
-                        <button id="app__createToDoPriorityHigh">Alta</button>
+                        <button id="app__createToDoPriorityLow" class="app__createToDoPriority--baja">Baja</button>
+                        <button id="app__createToDoPriorityMedium" class="app__createToDoPriority--media app__createToDoPriorityActive">Media</button>
+                        <button id="app__createToDoPriorityHigh" class="app__createToDoPriority--alta">Alta</button>
                     </div>
                 </div>
 
