@@ -1,16 +1,22 @@
 import { Cards } from "./Children/Cards/Cards.js";
 import { Filters } from "./Children/Filters/Filters.js";
 import { Create_ToDo } from "./Children/Create_ToDo/Create_ToDo.js";
+import { Edit_ToDo } from "./Children/Edit_ToDo/Edit_ToDo.js";
 import { Map_Tasks } from "./Children/Map_Tasks/Map_Tasks.js";
 
 //--> Functions and Hooks
 import "./Hooks_Funcs/ShowCTModal.js";
+import "./Children/Filters/Hooks_Funcs/HandleFilter.js";
+import "./Children/Filters/Hooks_Funcs/HandleSort.js";
 
 export function App() {
     return `
         <div class="app__container">
             <!-- Create_ToDo -->
             ${Create_ToDo()}
+
+            <!-- Edit_ToDo -->
+            ${Edit_ToDo()}
 
             <!-- Cards -->
             <div id="re_render_cards_appID">

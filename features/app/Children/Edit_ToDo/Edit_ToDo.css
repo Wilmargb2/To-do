@@ -1,4 +1,4 @@
-.app__createToDoContainer {
+.app__editToDoContainer {
     display: none;
     align-items: center;
     justify-content: center;
@@ -11,12 +11,7 @@
     animation: fadeIn 200ms ease;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.app__createToDoContent {
+.app__editToDoContent {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -34,18 +29,7 @@
     animation: slideUp 300ms ease;
 }
 
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px) scale(0.97);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-.app__createToDoContent h1 {
+.app__editToDoContent h1 {
     width: 100%;
     margin: 0 0 var(--space-6);
     font-size: var(--font-size-xl);
@@ -54,14 +38,14 @@
     letter-spacing: -0.3px;
 }
 
-.app__createToDoForm {
+.app__editToDoForm {
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
     width: 100%;
 }
 
-.app__createToDoForm label {
+.app__editToDoForm label {
     text-align: left;
     font-weight: var(--font-weight-semibold);
     color: var(--color-text-secondary);
@@ -69,8 +53,9 @@
     margin-bottom: -4px;
 }
 
-.app__createToDoForm input,
-.app__createToDoForm textarea {
+.app__editToDoForm input,
+.app__editToDoForm textarea,
+.app__editToDoDue input {
     width: 100%;
     padding: 12px 14px;
     box-sizing: border-box;
@@ -83,50 +68,50 @@
     transition: all var(--transition-fast);
 }
 
-.app__createToDoForm input:focus,
-.app__createToDoForm textarea:focus,
-.app__createToDoDue input:focus {
+.app__editToDoForm input:focus,
+.app__editToDoForm textarea:focus,
+.app__editToDoDue input:focus {
     outline: none;
     border-color: var(--color-primary-light);
     background: var(--color-surface);
     box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
 }
 
-.app__createToDoForm input::placeholder,
-.app__createToDoForm textarea::placeholder {
+.app__editToDoForm input::placeholder,
+.app__editToDoForm textarea::placeholder {
     color: var(--color-text-muted);
 }
 
-.app__createToDoForm textarea {
+.app__editToDoForm textarea {
     resize: none;
     height: 120px;
 }
 
-.app__createToDoDue {
+.app__editToDoDue {
     display: flex;
     gap: var(--space-2);
     width: 100%;
 }
 
-.app__createToDoDate {
+.app__editToDoDate {
     flex: 1;
 }
 
-.app__createToDoTime {
+.app__editToDoTime {
     flex-shrink: 0;
     width: 140px;
 }
 
-.app__createToDoTitle--error {
+.app__editToDoTitle--error {
     border-color: var(--color-danger) !important;
     background: var(--color-danger-bg) !important;
 }
 
-.app__createToDoTitle--error:focus {
+.app__editToDoTitle--error:focus {
     box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15) !important;
 }
 
-.app__createToDoPriorityLabel {
+.app__editToDoPriorityLabel {
     text-align: left;
     font-weight: var(--font-weight-semibold);
     color: var(--color-text-secondary);
@@ -134,13 +119,13 @@
     margin-bottom: -4px;
 }
 
-.app__createToDoPriority {
+.app__editToDoPriority {
     display: flex;
     width: 100%;
     gap: var(--space-2);
 }
 
-.app__createToDoPriority button {
+.app__editToDoPriority button {
     flex: 1;
     padding: 12px;
     border: 1.5px solid var(--color-border);
@@ -154,64 +139,64 @@
     transition: all var(--transition-fast);
 }
 
-.app__createToDoPriority button:hover {
+.app__editToDoPriority button:hover {
     transform: translateY(-1px);
     border-color: #cbd5e1;
 }
 
-.app__createToDoPriority button:focus-visible {
+.app__editToDoPriority button:focus-visible {
     outline: none;
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
-.app__createToDoPriority--baja {
+.app__editToDoPriority--baja {
     color: var(--color-priority-low) !important;
     border-color: var(--color-priority-low) !important;
 }
 
-.app__createToDoPriority--media {
+.app__editToDoPriority--media {
     color: var(--color-priority-medium) !important;
     border-color: var(--color-priority-medium) !important;
 }
 
-.app__createToDoPriority--alta {
+.app__editToDoPriority--alta {
     color: var(--color-priority-high) !important;
     border-color: var(--color-priority-high) !important;
 }
 
-.app__createToDoPriorityActive {
+.app__editToDoPriorityActive {
     background: var(--color-primary) !important;
     color: #ffffff !important;
     border-color: var(--color-primary) !important;
     box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
 }
 
-.app__createToDoPriority--baja.app__createToDoPriorityActive {
+.app__editToDoPriority--baja.app__editToDoPriorityActive {
     background: var(--color-priority-low) !important;
     border-color: var(--color-priority-low) !important;
     box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25);
 }
 
-.app__createToDoPriority--media.app__createToDoPriorityActive {
+.app__editToDoPriority--media.app__editToDoPriorityActive {
     background: var(--color-priority-medium) !important;
     border-color: var(--color-priority-medium) !important;
     box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);
 }
 
-.app__createToDoPriority--alta.app__createToDoPriorityActive {
+.app__editToDoPriority--alta.app__editToDoPriorityActive {
     background: var(--color-priority-high) !important;
     border-color: var(--color-priority-high) !important;
     box-shadow: 0 4px 12px rgba(239, 68, 68, 0.25);
 }
 
-.app__createToDoButtons {
+.app__editToDoButtons {
     margin-top: var(--space-6);
     display: flex;
     width: 100%;
     gap: var(--space-3);
 }
 
-.app__createToDoButtons button {
+.app__editToDoButtons button {
     flex: 1;
     padding: 14px;
     border: none;
@@ -223,32 +208,48 @@
     transition: all var(--transition-base);
 }
 
-.app__createToDoButtons button:focus-visible {
+.app__editToDoButtons button:focus-visible {
     outline: none;
     box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
 }
 
-.app__createToDoButtons button:first-child {
+.app__editToDoButtons button:first-child {
     background: var(--color-bg);
     color: var(--color-text-secondary);
     border: 1.5px solid var(--color-border);
 }
 
-.app__createToDoButtons button:first-child:hover {
+.app__editToDoButtons button:first-child:hover {
     background: var(--color-border);
     color: var(--color-text-primary);
 }
 
-.app__createToDoButtons button:last-child {
+.app__editToDoButtons button:last-child {
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
     color: #ffffff;
 }
 
-.app__createToDoButtons button:last-child:hover {
+.app__editToDoButtons button:last-child:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
 }
 
-.app__createToDoButtons button:last-child:active {
+.app__editToDoButtons button:last-child:active {
     transform: translateY(0);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }

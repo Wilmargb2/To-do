@@ -1,20 +1,40 @@
 .Filters__container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    gap: var(--space-2);
     width: 100%;
-    gap: 0;
     margin-top: var(--space-3);
     margin-bottom: var(--space-3);
     background: var(--color-bg);
-    padding: 4px;
+    padding: var(--space-3);
     border-radius: var(--radius-md);
     border: 1px solid var(--color-border);
 }
 
-.Filters__container button {
-    flex: 1;
-    padding: 10px 18px;
+.Filters__section {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.Filters__label {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    min-width: 60px;
+}
+
+.Filters__group {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+
+.Filters__button {
+    padding: 6px 14px;
     border: none;
     border-radius: var(--radius-sm);
     background: transparent;
@@ -27,11 +47,11 @@
     letter-spacing: 0.2px;
 }
 
-.Filters__container button:hover {
+.Filters__button:hover {
     color: var(--color-text-primary);
 }
 
-.Filters__container button:focus-visible {
+.Filters__button:focus-visible {
     outline: none;
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
@@ -40,4 +60,10 @@
     background: var(--color-surface);
     color: var(--color-primary) !important;
     box-shadow: var(--shadow-sm);
+}
+
+.Filters__divider {
+    height: 1px;
+    background: var(--color-border);
+    margin: var(--space-1) 0;
 }

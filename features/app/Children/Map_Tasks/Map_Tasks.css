@@ -3,6 +3,28 @@
     flex-direction: column;
     gap: var(--space-3);
     width: 100%;
+    max-height: 340px;
+    overflow-y: auto;
+}
+
+.app__mapTasksContainer::-webkit-scrollbar {
+    width: 6px;
+}
+
+.app__mapTasksContainer::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.app__mapTasksContainer::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 3px;
+}
+
+@supports (scrollbar-width: thin) {
+    .app__mapTasksContainer {
+        scrollbar-width: thin;
+        scrollbar-color: var(--color-border) transparent;
+    }
 }
 
 .app__taskCard {
@@ -198,6 +220,11 @@
     background: var(--color-warning-bg);
 }
 
+.app__taskAction--edit:hover {
+    color: var(--color-primary);
+    background: var(--color-primary-bg);
+}
+
 .app__taskAction--delete:hover {
     color: var(--color-danger);
     background: var(--color-danger-bg);
@@ -246,6 +273,17 @@
     display: flex;
     align-items: center;
     gap: var(--space-1);
+}
+
+.app__taskMeta--overdue {
+    color: var(--color-danger) !important;
+    font-weight: var(--font-weight-semibold);
+}
+
+.app__taskMeta--noDue {
+    color: var(--color-text-muted);
+    font-style: italic;
+    font-size: var(--font-size-xs);
 }
 
 /* Description */

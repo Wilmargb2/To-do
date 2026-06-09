@@ -2,16 +2,45 @@ import { GetData } from "./Hooks_Funcs/GetData.js";
 import { ChevronUp } from "../../../shared/Icons/ChevronUp.js";
 import { XClose } from "../../../shared/Icons/XClose.js";
 import { Trash } from "../../../shared/Icons/Trash.js";
+import { Pencil } from "../../../shared/Icons/Pencil.js";
 import { ListToDo } from "../../../shared/Icons/ListToDo.js";
 import { Calendar } from "../../../shared/Icons/Calendar.js";
-import { Clock } from "../../../shared/Icons/Clock.js";
+import { activeFilter, activeSort } from "../../../shared/FilterState.js";
 import "./Hooks_Funcs/ExpandToggle.js";
 import "./Hooks_Funcs/CompleteTask.js";
 import "./Hooks_Funcs/DeleteTask.js";
 import "./Hooks_Funcs/CloseTask.js";
 
+function formatDate(dateStr) {
+    if (!dateStr) return "";
+    const [y, m, d] = dateStr.split("-");
+    return `${d}/${m}/${y}`;
+}
+
+function formatDue(item) {
+    if (!item.dueDate && !item.dueTime) return "";
+    const date = item.dueDate ? formatDate(item.dueDate) : "";
+    const time = item.dueTime || "";
+    return `${date}${date && time ? " " : ""}${time}`;
+}
+
 export function Map_Tasks() {
-    const Data = GetData();
+    let Data = GetData();
+
+    if (activeFilter !== "todas") {
+        Data = Data.filter(item => item.state.toLowerCase() === activeFilter);
+    }
+
+    if (activeSort !== "none") {
+        const rank = { alta: 1, media: 2, baja: 3 };
+        Data = [...Data].sort((a, b) => {
+            const aP = a.priority.toLowerCase();
+            const bP = b.priority.toLowerCase();
+            if (aP === activeSort) return -1;
+            if (bP === activeSort) return 1;
+            return (rank[aP] || 0) - (rank[bP] || 0);
+        });
+    }
 
     return `
         <div class="app__mapTasksContainer">
@@ -50,6 +79,11 @@ export function Map_Tasks() {
                                         ${XClose({ size: 18 })}
                                     </button>
                                 ` : ""}
+                                ${item.state !== "Cerrada" ? `
+                                    <button class="app__taskAction app__taskAction--edit" data-task-id="${item.id}" title="Editar tarea">
+                                        ${Pencil({ size: 18 })}
+                                    </button>
+                                ` : ""}
                                 <button class="app__taskAction app__taskAction--delete" data-task-id="${item.id}" title="Eliminar tarea">
                                     ${Trash({ size: 18 })}
                                 </button>
@@ -61,8 +95,13 @@ export function Map_Tasks() {
                         </div>
 
                         <div class="app__taskMeta">
-                            <span>${Calendar({ size: 16 })} Hoy</span>
-                            <span>${Clock({ size: 16 })} 30 min</span>
+                            ${item.dueDate || item.dueTime ? `
+                                <span class="${item.state === "Vencida" ? "app__taskMeta--overdue" : ""}">
+                                    ${Calendar({ size: 16 })} ${formatDue(item)}
+                                </span>
+                            ` : `
+                                <span class="app__taskMeta--noDue">Sin vencimiento</span>
+                            `}
                         </div>
 
                         <p class="app__taskDescription">

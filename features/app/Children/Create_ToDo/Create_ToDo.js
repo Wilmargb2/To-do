@@ -29,6 +29,12 @@ export function Create_ToDo() {
                         <button id="app__createToDoPriorityMedium" class="app__createToDoPriority--media app__createToDoPriorityActive">Media</button>
                         <button id="app__createToDoPriorityHigh" class="app__createToDoPriority--alta">Alta</button>
                     </div>
+
+                    <label for="dueDate">Vencimiento</label>
+                    <div class="app__createToDoDue">
+                        <input type="date" id="dueDate_createToDo" class="app__createToDoDate" />
+                        <input type="time" id="dueTime_createToDo" class="app__createToDoTime" />
+                    </div>
                 </div>
 
                 <div class="app__createToDoButtons">
